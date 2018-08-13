@@ -1,0 +1,3 @@
+<div *ngIf="companies">
+   <app-child [items]="companies" (sendId) = "getId($event)"></app-child>
+</div>

@@ -1,0 +1,30 @@
+<section>
+
+	<select (change)="onCategorySelect($event)">
+		<option *ngFor="let category of categoryList">
+			{{category}}			
+		</option>
+	</select>
+	<select  [(ngModel)]="currentData.item" (change)="onItemSelect($event)">
+			<option *ngFor="let item of categoryItemList[currentData.category]; let ind = index" [ngValue]="item">
+				{{item.name}}			
+			</option>
+	</select>
+
+
+	<div>
+	  <canvas id="canvas">{{ chart }}</canvas>
+	</div>
+
+	<div class="statistics">
+		<span>Month:</span><span>{{currentData.month}}</span>
+	</div>
+	<div class="statistics">
+		<button [hidden]="!currentData.hiddenOpen" (click)="onOpenClick()"> Open </button>
+	</div>
+	<div class="statistics">
+		<span>Total:</span><span>{{currentData.total}}</span>
+	</div>
+
+</section>
+
