@@ -22,20 +22,18 @@ export class ParentComponent implements OnInit {
     }
 
     getData() {
-	      this.getDataService.getJSON().subscribe(
-            data => {
-              //this.companies = data, 
-              console.log("data ", data);
+	    this.getDataService.getJSON().subscribe(
+            data => { 
+              console.log("data initial", data);
               this.dumbDataPrepare(data.companies);
-            },
-            error => console.log(error));// ???
+        });
     }
 
     dumbDataPrepare(arr) {
 
         let result = [];
         arr.forEach((element) => {
-            
+
             let o = {};
 
             if (element.monthRevenue > 0) {
@@ -55,8 +53,7 @@ export class ParentComponent implements OnInit {
         });
 
         this.companies = result.slice();
-        console.log("this.companies", this.companies);        
-
+        //console.log("this.companies", this.companies);
     }
 
     checkAlterName(key) { 

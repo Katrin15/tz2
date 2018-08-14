@@ -15,10 +15,7 @@ export class GetDataService {
 
 	getJSON(): Observable<any> {
     	return this.http.get("/assets/data/data.json").pipe(
-    		tap(res => console.log('fetched heroes', res)),
-        	map(res => res.json()),
-        	//catchError(console.log("error getJSON()"))
-      	);
+        	map( res => res.json() ))
   	};
 
 }
