@@ -14,6 +14,7 @@ export class ParentComponent implements OnInit {
 
     companies:Company[];
     alterName = new AlterName();
+    id:number;
 
     constructor(private getDataService: GetDataService) { }
 
@@ -67,6 +68,7 @@ export class ParentComponent implements OnInit {
 
     getId(id) {
         console.log("id ", id);
+        this.id = id;
     }
 
 }
